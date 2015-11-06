@@ -1,0 +1,19 @@
+
+<div class="navbar navbar-default">
+  <div class="navbar-header">
+    <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toogle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/"><span class="navbar-brand"><img src="<?php echo STATIC_URL?>img/logo-fullcine.png" height="34" width="116"/>&nbsp;&nbsp;</span></a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul id="main-menu" class="nav navbar-nav navbar-right">
+      <li class="dropdown hidden-xs"><a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle"><span style="position:relative;top: 1px;" class="fa fa-user padding-right-small"></span>&nbsp;&nbsp;<?php echo $this->identity->name; ?> &nbsp;<i class="fa fa-caret-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/profile/">Mi Perfil</a></li>
+          <li class="divider"></li>
+          <li><a tabindex="-1" href="/login/logout">Logout</a></li>
+        </ul>
+      </li>
+      <li class="visible-xs"><a href="/profile" class="nav-header"><i class="fa fa-fw fa-dashboard"></i> Mi Perfil</a></li>
+      <li class="visible-xs"><a href="/login/logout" class="nav-header"><i class="fa fa-fw fa-dashboard"></i> Logout</a></li>
+    </ul>
+  </div>
+</div>

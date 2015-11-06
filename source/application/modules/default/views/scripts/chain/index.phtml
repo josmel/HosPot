@@ -1,0 +1,66 @@
+
+<?php /* ?><div class="header">
+  <h1 class="page-title">Sucursales de la cadena "<?php echo $this->name; ?>"<a href="/company" class="lnkHBack">Volver >></a></h1>
+</div><?php */ ?>
+<div class="clearfix padding-bottom">
+  <div class="pull-right">
+    <button id="lnkAds" data-target="#tplAds" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Crear nueva Publicidad</button>
+  </div>
+</div>
+<table id="datatable" class="table">
+  <thead>
+    <tr>
+      <th>Banner</th>
+      <th>Nombre</th>
+      <th>Cadena</th>
+      <th>Provincia</th>
+      <th class="tdAction">Acciones</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script type="text/template" id="tplAds">
+  <div tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="frmAds">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h3>{{ if(typeof id!='undefined'){ }}Modificar Sucursal{{ }else{ }}Crear Sucursal{{ } }}</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Cadena:</label>
+              <select name="idcompany" id="idcompany" class="form-control input-sm">
+                <option value="">Seleccione una cadena</option>{{ _.map(yOSON.company,function(json,id){ }}
+                <option value="{{= id }}" {{ if(typeof idcompany!='undefined' && idcompany==id){ }}selected="selected"{{ } }}>{{= json.name }}</option>
+                {{ }); }}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ubicación:</label>
+              <select name="idubigeo" id="idubigeo" class="form-control input-sm">
+                <option value="">Seleccione una Ubicación</option>{{ _.map(yOSON.ubigeo,function(json,id){ }}
+                <option value="{{= id }}" {{ if(typeof idubigeo!='undefined' && idubigeo==id){ }}selected="selected"{{ } }}>{{= json.name }}</option>
+                {{ }); }}
+              </select>
+            </div>
+          <div class="img-profile forBrandTpl"><img src="{{ if(typeof picture!='undefined'){ }}<?php echo DINAMIC_URL; ?>ads/{{= picture }}{{ }else{ }}<?php echo STATIC_URL.'img/brand.png'; ?>{{ } }}"/>
+            <div class="label label-primary img-label padding-top-small padding-bottom-small">Arrastre o haga click para cambiar el banner</div>
+          </div>
+            <div class="form-group">
+              <label>Nombre de la publicidad:</label>
+              <input type="text" name="name" value="{{ if(typeof name!='undefined'){ }}{{= name }}{{ } }}" class="form-control input-sm"/>
+              <input type="hidden" id="picture" name="picture" value="{{ if(typeof picture!='undefined'){ }}{{= picture}}{{ } }}"/>
+              {{ if(typeof id!='undefined'){ }}<input type="hidden" name="id" value="{{= id }}"/>{{ } }}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

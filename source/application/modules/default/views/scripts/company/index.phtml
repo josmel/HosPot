@@ -1,0 +1,57 @@
+
+<div class="header">
+  <h1 class="page-title">Clientes</h1>
+</div>
+<div class="clearfix padding-bottom">
+  <div class="pull-right">
+    <button id="lnkCompany" data-target="#tplCompany" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Crear nuevo cliente</button>
+  </div>
+</div>
+<table id="datatable" class="table">
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Cadena</th>
+      <th>Publicidad</th>
+      <th class="tdAction">Acciones</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script type="text/template" id="tplCompany">
+  <div tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="frmCompany">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h3>{{ if(typeof id!='undefined'){ }}Modificar Cadena{{ }else{ }}Crear Cadena{{ } }}</h3>
+          </div>
+          <div id="imgChain" data-target="#picture" class="img-profile forBrandTpl"><img width="248" height="124" src="{{ if(typeof picture!='undefined'){ }}<?php echo DINAMIC_URL; ?>company/{{= picture }}{{ }else{ }}<?php echo STATIC_URL.'img/brand.png'; ?>{{ } }}"/>
+            <div class="label label-primary img-label padding-top-small padding-bottom-small">Arrastre o haga click para cambiar el logo</div>
+          </div>
+          <div id="imgChainAds" data-target="#pictureads" class="img-profile forBrandTpl"><img width="248" height="124" src="{{ if(typeof pictureads!='undefined'){ }}<?php echo DINAMIC_URL; ?>company/{{= pictureads }}{{ }else{ }}<?php echo STATIC_URL.'img/brand.png'; ?>{{ } }}"/>
+            <div class="label label-primary img-label padding-top-small padding-bottom-small">Arrastre o haga click para cambiar el logo</div>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Nombre:</label>
+              <input type="text" name="name" id="name" value="{{ if(typeof name!='undefined'){ }}{{= name }}{{ } }}" class="form-control input-sm"/>
+              {{ if(typeof id!="undefined"){ }}<input type="hidden" name="id" value="{{ if(typeof id!='undefined'){ }}{{= id }}{{ } }}"/>{{ } }}
+              <input type="hidden" id="picture" name="picture" value="{{ if(typeof picture!='undefined'){ }}{{= picture}}{{ } }}"/>
+              <input type="hidden" id="pictureads" name="pictureads" value="{{ if(typeof pictureads!='undefined'){ }}{{= pictureads}}{{ } }}"/>
+            </div>
+            <div class="form-group">
+                <label>Publicidad:</label>
+                <input type="checkbox" name="paidads" id="paidads" value="1" {{ if(typeof paidads!='undefined' && paidads !=0){ }}checked="true"{{ } }} />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

@@ -1,0 +1,213 @@
+/**
+* Resource CSS
+* @class resource
+* @module content.css
+*/
+/*
+* Components
+*/
+.label.img-label
+	display block
+	border-radius 0
+.modal .modal-header h3
+	font-size: 0.95em
+	margin: 0
+	padding: 0
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus
+	background-color colorLnk
+.nav > li > a:hover, .nav > li > a:focus
+	color colorLnk
+.hid
+	display none
+.alert
+	padding 12px
+.text-info
+	color colorLnk
+/*
+* Alerts
+*/
+.bs-callout
+	margin: 20px 0
+	padding: 15px 30px 15px 15px
+	border-left: 5px solid #eee
+.bs-callout h4
+	margin-top: 0
+.bs-callout p:last-child
+	margin-bottom: 0
+.bs-callout-warning
+	background-color: #fefbed
+	border-color: #f1e7bc
+/*
+*	Sidebar
+*/
+.sidebar-nav
+	width: 240px
+	position: absolute
+	float: left
+	border-top: none
+	border-left: none
+	margin: 0em
+	ul
+		list-style: none
+		padding-left: 0px
+	li a .fa-caret-right
+		color: #666
+		padding-right: .25em
+	.nav-header
+		border-top: 1px solid #fcfcfc
+		border-bottom: 1px solid #c8c8cb
+		background: #efeff0
+		background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #efeff0), color-stop(1, #fafafa))
+		background: -ms-linear-gradient(bottom, #efeff0, #fafafa)
+		background: -moz-linear-gradient(center bottom, #efeff0 0%, #fafafa 100%)
+		background: -o-linear-gradient(bottom, #efeff0, #fafafa)
+		filter: unquote("progid:dximagetransform.microsoft.gradient(startColorStr='#e3e3e3', EndColorStr='#ffffff')")
+		-ms-filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa',EndColorStr='#efeff0')")
+		border-left: none
+		color: #444
+		display: block
+		font-weight: normal
+		font-size: 1em
+		line-height: 2.5em
+		padding: .25em .25em .25em 1em
+		margin-bottom: 0px
+		text-shadow: none
+		text-transform: none
+		&:hover
+			background: #efeff0
+			background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #efeff0), color-stop(1, #ffffff))
+			background: -ms-linear-gradient(bottom, #efeff0, #ffffff)
+			background: -moz-linear-gradient(center bottom, #efeff0 0%, #ffffff 100%)
+			background: -o-linear-gradient(bottom, #efeff0, #ffffff)
+		&.collapsed .fa-collapse:before
+			content: "\f078"
+		.fa-collapse:before
+			content: "\f077"
+		.fa-collapse
+			float: right
+		i[class*="fa-"]
+			line-height: 2.25em
+			padding-right: .75em
+		.label
+			float: right
+			margin-top: .7em
+			margin-right: 0.25em
+			line-height: 1.5em
+	.nav-list
+		margin: 0px
+		border: 0px
+		background: #fafafa
+		& > li > a
+			color: #222
+			padding: .5em 1em
+			&:focus
+				background none
+			&:hover
+				background: #34617D
+				color #FFF
+				.fa-caret-right
+					color #FFF
+		& > .active > a, & > .active > a:hover
+			background: #34617D
+			color #FFF
+			text-shadow: none
+			.fa-caret-right
+					color #FFF
+		li:first-child.active a
+			border-top 0
+		li:last-child.active a
+			border-bottom 0
+		& > li:hover
+			border-left: 4px solid #1f3c4d
+			overflow: hidden
+			a
+				margin-left: -4px
+		& > .active
+			overflow: hidden
+			border-left: 4px solid #1f3c4d
+			a
+				margin-left: -4px
+			& > a:hover
+				background: #34617D
+/*
+*	Content Header
+*/
+.header
+	background: #fff
+	border-bottom: 1px solid #eee
+	border-left: 1px solid #fff
+	padding: .5em 0em .8em 0em
+	margin: 0px 0em 2em 0em
+	*zoom 1
+	&:before,&:after
+		display table
+		content ""
+		line-height 0
+	&:after
+		clear both
+	h1
+		margin: 0em 0em .5em 0em
+		padding: 0em
+		line-height: 1em
+		font-size: 1.5em
+		font-weight: normal
+	.page-title
+		margin 0
+		padding 5px 0
+	.lnkHBack
+		float right
+		font-size 13px
+	.head-lnks
+		float right
+		a
+			display block
+			font-size 0.9em
+			line-height 1.7em
+.stats
+	float: right
+	.stat
+		float: left
+		font-size: .9em
+		line-height: 2.5em
+		margin 0
+		.label
+			font-size: 1em
+/*
+*	Aligns
+*/
+.alg-right
+	text-align right
+.alg-left
+	text-align left
+.alg-center
+	text-align center
+/*
+* Spacing
+*/
+.padding-right-small
+	padding-right: .6em
+.padding-bottom
+	padding-bottom: 1.1em
+/*
+*	Table
+*/
+.table
+	td,th
+		text-align center
+.tdAction
+	font-size 16px
+	text-align center
+	width 76px
+.tdAction3
+	width 96px
+.tdImg
+	width 52px
+	img
+		border-radius 52px
+		display block
+td.tdName
+	text-align left
+.tdImg140
+	width 140px
+	img
+		display block

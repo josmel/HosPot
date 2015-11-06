@@ -1,0 +1,41 @@
+
+<div class="header">
+  <h1 class="page-title">Perfil</h1>
+</div>
+<div class="row ctnProfile">
+  <div class="col-md-3">
+    <div class="img-profile"><?php $picture = $this->form->picture->getValue(); ?><img src="<?php echo !empty($picture)?DINAMIC_URL .'admin/'. $picture:STATIC_URL.'img/profile.png'; ?>"/>
+      <div class="label label-primary img-label padding-top-small padding-bottom-small">Arrastre o haga click para cambiar la imagen</div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-heading">Información del Usuario</div>
+      <div class="panel-body">
+        <form id="frmProfile" method="POST">
+          <div class="form-group">
+            <label>Usuario:</label><?php echo $this->form->email; ?>
+          </div>
+          <div class="form-group">
+            <label>Nombre:</label><?php echo $this->form->name; ?>
+            <?php echo $this->form->picture; ?>
+          </div>
+          <div class="form-group">
+            <label>Apellido paterno:</label><?php echo $this->form->lastnamepaternal; ?>
+          </div>
+          <div class="form-group">
+            <label>Apellido materno:</label><?php echo $this->form->lastnamematernal; ?>
+          </div>
+          <div class="form-group">
+            <label>Teléfono:</label><?php echo $this->form->phone; ?>
+          </div>
+          <div class="form-group">
+            <label>Contraseña:</label>
+            <input type="password" name="password" class="form-control input-sm"/>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

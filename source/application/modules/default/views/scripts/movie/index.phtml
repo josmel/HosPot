@@ -1,0 +1,92 @@
+<div class="clearfix padding-bottom">
+  <div class="pull-right">
+    <button id="lnkMovie" data-target="#tplMovie" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ingresar nueva Campaña</button>
+  </div>
+</div>
+<table id="datatable" class="table">
+  <thead>
+    <tr>
+      <th>Imagen</th>
+      <th>Nombre</th>
+      <th>Resumen</th>
+      <th>Género</th>
+      <th>Provincia</th>
+      <th>Fecha de pulicación</th>
+      <th class="tdAction">Acciones</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script type="text/template" id="tplMovie">
+  <div tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="frmMovie">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h3>{{ if(typeof id!='undefined'){ }}Modificar Pelicula{{ }else{ }}Crear Pelicula{{ } }}</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Género:</label>
+              <select name="idgenre" id="idgenre" class="form-control input-sm">
+                <option value="">Seleccione un género</option>{{ _.map(yOSON.genre,function(json,id){ }}
+                <option value="{{= id }}" {{ if(typeof idgenre!='undefined' && idgenre==id){ }}selected="selected"{{ } }}>{{= json.name }}</option>
+                {{ }); }}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ubicación:</label>
+              <select name="idubigeo" id="idubigeo" class="form-control input-sm">
+                <option value="">Seleccione una Ubicación</option>{{ _.map(yOSON.ubigeo,function(json,id){ }}
+                <option value="{{= id }}" {{ if(typeof idubigeo!='undefined' && idubigeo==id){ }}selected="selected"{{ } }}>{{= json.name }}</option>
+                {{ }); }}
+              </select>
+            </div>
+          <div class="img-profile forBrandTpl"><img src="{{ if(typeof picture!='undefined'){ }}<?php echo DINAMIC_URL; ?>movie/{{= picture }}{{ }else{ }}<?php echo STATIC_URL.'img/brand.png'; ?>{{ } }}"/>
+            <div class="label label-primary img-label padding-top-small padding-bottom-small">Arrastre o haga click para cambiar la imagen</div>
+          </div>
+            <div class="form-group">
+              <label>Nombre de la pelicula:</label>
+              <input type="text" name="name" value="{{ if(typeof name!='undefined'){ }}{{= name }}{{ } }}" class="form-control input-sm"/>
+              <input type="hidden" id="picture" name="picture" value="{{ if(typeof picture!='undefined'){ }}{{= picture}}{{ } }}"/>
+              {{ if(typeof id!='undefined'){ }}<input type="hidden" name="id" value="{{= id }}"/>{{ } }}
+            </div>
+            <div class="form-group">
+              <label>Resumen:</label>
+              <textarea class="form-control input-sm" name="synopsis">{{ if(typeof synopsis!='undefined'){ }}{{= synopsis }}{{ } }}</textarea>
+            </div>
+            <div class="form-group">
+              <label>IMDB:</label>
+              <input type="text" name="imdb" value="{{ if(typeof imdb!='undefined'){ }}{{= imdb }}{{ } }}" class="form-control input-sm"/>
+            </div>
+            <div class="form-group">
+              <label>Url de Trailer:</label>
+              <input type="text" name="urltrailer" value="{{ if(typeof urltrailer!='undefined'){ }}{{= urltrailer }}{{ } }}" class="form-control input-sm"/>
+            </div>
+            <div class="form-group">
+              <label>Director:</label>
+              <input type="text" name="director" value="{{ if(typeof director!='undefined'){ }}{{= director }}{{ } }}" class="form-control input-sm"/>
+            </div>
+            <div class="form-group">
+              <label>Reparto:</label>
+              <textarea class="form-control input-sm" name="cast">{{ if(typeof cast!='undefined'){ }}{{= cast }}{{ } }}</textarea>
+            </div>
+            <div class="form-group">
+              <label>Estreno:</label>
+              <input type="checkbox" name="premiere" id="premiere" value="1" {{ if(typeof premiere!='undefined' && premiere !=0){ }}checked="true"{{ } }} class="form-control input-sm"/>
+            </div>
+            <div class="form-group">
+              <label>Fecha de publicacion:</label>
+              <input type="text" id="datepublication" name="datepublication" value="{{ if(typeof datepublication!='undefined'){ }}{{= datepublication }}{{ } }}" class="form-control input-sm"/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

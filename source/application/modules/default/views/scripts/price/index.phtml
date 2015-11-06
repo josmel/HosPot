@@ -1,0 +1,59 @@
+
+<div class="header">
+  <h1 class="page-title">Precios de la sucursal "<?php echo $this->name; ?>"<a href="/subsidiary/index/id/<?php echo $this->id;?>" class="lnkHBack">Volver >></a></h1>
+</div>
+<div class="clearfix padding-bottom">
+  <div class="pull-right">
+    <button id="lnkPrice" data-target="#tplPrice" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Agregar un precio</button>
+  </div>
+</div>
+<table id="datatable" class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Día</th>
+      <th>Cadena - Sucursal</th>
+      <th class="tdAction">Acciones</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script type="text/template" id="tplPrice">
+  <div tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="frmPrice">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h3>{{ if(typeof id!='undefined'){ }}Modificar Precio{{ }else{ }}Crear Precio{{ } }}</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Día:</label>
+              <select name="idday" id="idday" class="form-control input-sm">
+                <option value="">Seleccione un día</option>{{ _.map(yOSON.day,function(json,id){ }}
+                <option value="{{= id }}" {{ if(typeof idday!='undefined' && idday==id){ }}selected="selected"{{ } }}>{{= json.name }}</option>
+                {{ }); }}
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nombre:</label>
+              <input type="text" name="name" value="{{ if(typeof name!='undefined'){ }}{{= name }}{{ } }}" class="form-control input-sm"/>
+              <input type="hidden" name="idsubsidiary" value="{{= yOSON.idSubsidiary }}"/>
+              {{ if(typeof id!='undefined'){ }}<input type="hidden" name="id" value="{{= id }}"/>{{ } }}
+            </div>
+            <div class="form-group">
+              <label>Costo:</label>
+              <input type="text" name="value" value="{{ if(typeof value!='undefined'){ }}{{= value }}{{ } }}" class="form-control input-sm"/>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

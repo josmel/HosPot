@@ -1,0 +1,43 @@
+
+<div class="header">
+  <h1 class="page-title">Género</h1>
+</div>
+<div class="clearfix padding-bottom">
+  <div class="pull-right">
+    <button id="lnkGenre" data-target="#tplGenre" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Crear nuevo Género</button>
+  </div>
+</div>
+<table id="datatable" class="table">
+  <thead>
+    <tr>
+      <th>Género</th>
+      <th class="tdAction">Acciones</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<script type="text/template" id="tplGenre">
+  <div tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="frmGenre">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h3>{{ if(typeof id!='undefined'){ }}Modificar Género{{ }else{ }}Crear Género{{ } }}</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Nombre:</label>
+              <input type="text" name="name" id="name" value="{{ if(typeof name!='undefined'){ }}{{= name }}{{ } }}" class="form-control input-sm"/>
+              {{ if(typeof id!="undefined"){ }}<input type="hidden" name="id" value="{{ if(typeof id!='undefined'){ }}{{= id }}{{ } }}"/>{{ } }}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

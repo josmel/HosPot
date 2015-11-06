@@ -1,0 +1,37 @@
+/*
+*	Responsive
+*/
+@media (max-width: 768px)
+	.content
+		margin: 0em
+	.sidebar-nav
+		float: none
+		width: auto
+		position: relative
+	h1
+		text-align: center
+	.stats
+		text-align: center
+		margin: .5em 0
+		float: none
+	.stats .stat
+		float: none
+		display: inline
+@media (max-width: 767px)
+	footer hr
+		margin-left: 0em
+		margin-right: 0em
+	.navbar .nav > li > ul
+		margin-left: 1.65em
+	.navbar .nav > li:hover
+		background-color: transparent
+	.nav > li > a:hover,.nav > li > a:focus
+		background-color: transparent
+	.sidebar-nav
+		display: none
+@media (max-width: 604px)
+	.dialog,.row .dialog
+		max-width: 300px
+@-moz-document url-prefix()
+	fieldset
+		display: table-cell

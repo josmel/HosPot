@@ -1,0 +1,91 @@
+
+<div class="header">
+  <h1 class="page-title">Peliculas de la sucursal "<?php echo $this->name; ?>"<a href="/subsidiary/index/id/<?php echo $this->id;?>" class="lnkHBack">Volver >></a></h1>
+</div>
+<div class="clearfix padding-bottom">
+  <div class="pull-right">
+    <button id="lnkBillboard" data-target="#tplBillboard" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;&nbsp;Agregar una pelicula</button>
+  </div>
+</div>
+<table id="datatable" class="table">
+  <thead>
+    <tr>
+      <th>Imagen</th>
+      <th>Pelicula</th>
+      <th>Género</th>
+      <th>Horario 3D Subtitulada</th>
+      <th>Horario 3D Doblada</th>
+      <th>Horario Subtitulada</th>
+      <th>Horario Doblada</th>
+      <th>Fecha de publicacion de la pelicula</th>
+      <th>Cadena</th>
+      <th>Sucursal</th>
+      <th class="tdAction">Acciones</th>
+    </tr>
+  </thead>
+   <tfoot>
+    <tr>
+        <th></th>
+        <th><input type="text" placeholder="Buscar Película" /></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><input type="text" placeholder="Buscar Cadena" /></th>
+        <th><input type="text" placeholder="Buscar Sucursal" /></th>
+        <th class="tdAction"></th>
+    </tr>
+</tfoot>
+  <tbody></tbody>
+</table>
+<script type="text/template" id="tplBillboard">
+  <div tabindex="-1" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="frmBillboard">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close"><span>&times;</span><span class="sr-only">Close</span></button>
+            <h3>{{ if(typeof id!='undefined'){ }}Modificar Pelicula{{ }else{ }}Crear Pelicula{{ } }}</h3>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Pelicula:</label>
+              <select name="idmovie" id="idmovie" class="form-control input-sm">
+                <option value="">Seleccione una Ubicación</option>{{ _.map(yOSON.movie,function(json,id){ }}
+                <option value="{{= id }}" {{ if(typeof idmovie!='undefined' && idmovie==id){ }}selected="selected"{{ } }}>{{= json.name }}</option>
+                {{ }); }}
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="hidden" name="idsubsidiary" value="{{= yOSON.idSubsidiary }}"/>
+              {{ if(typeof id!='undefined'){ }}<input type="hidden" name="id" value="{{= id }}"/>{{ } }}
+              <label>Horario 3D Subtitulada:</label>
+              <input type="text" name="schedule3dsubtitle" value="{{ if(typeof schedule3dsubtitle!='undefined'){ }}{{= schedule3dsubtitle }}{{ } }}" class="form-control input-sm parseSchedule"/>
+            </div>
+            <div class="form-group">
+              <label>Horario 3D Doblada:</label>
+              <input type="text" name="schedule3ddubbing" value="{{ if(typeof schedule3ddubbing!='undefined'){ }}{{= schedule3ddubbing }}{{ } }}" class="form-control input-sm parseSchedule"/>
+            </div>
+            <div class="form-group">
+              <label>Horario Subtitulada:</label>
+              <input type="text" name="schedulesubtitle" value="{{ if(typeof schedulesubtitle!='undefined'){ }}{{= schedulesubtitle }}{{ } }}" class="form-control input-sm parseSchedule"/>
+            </div>
+            <div class="form-group">
+              <label>Horario Doblada:</label>
+              <input type="text" name="scheduledubbing" value="{{ if(typeof scheduledubbing!='undefined'){ }}{{= scheduledubbing }}{{ } }}" class="form-control input-sm parseSchedule"/>
+            </div>
+            <div class="form-group">
+              <a href="javascript:;" class="btnParseS">Formatear Horarios</a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</script>

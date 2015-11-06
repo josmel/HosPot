@@ -1,0 +1,35 @@
+
+<div class="header">
+  <h1 class="page-title">Dashboard</h1>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <div class="img-profile"><img src="<?php echo !empty($this->identity->picture)?DINAMIC_URL .'admin/'. $this->identity->picture:STATIC_URL.'img/profile.png'; ?>"/></div>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">Información de Usuario</div>
+          <div class="panel-body">
+            <ul class="list-unstyled">
+              <li><span class="text-info fa fa-user fa-fw"></span>	<?php echo $this->identity->name .' '. $this->identity->lastnamepaternal .' '. $this->identity->lastnamematernal?></li>
+              <li><span class="text-info fa fa-envelope fa-fw"></span>	<?php echo $this->identity->email; ?></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">Acciones</div>
+          <div class="list-group">
+            <li class="list-group-item"><a href="/company/"><i class="fa fa-chain"></i>&nbsp;Cadenas<span class="pull-right label label-danger"><?php echo $this->countAlert; ?></span></a></li>
+            <li class="list-group-item"><a href="/movie/"><i class="fa fa-ticket"></i>&nbsp;Peliculas</a></li>
+            <li class="list-group-item"><a href="/genre/"><i class="fa fa-folder"></i>&nbsp;Géneros</a></li>
+            <li class="list-group-item"><a href="/ads/"><i class="fa fa-tags"></i>&nbsp;Publicidad</a></li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{
+	"compile":{
+		"ext":".styl",
+		"cmd":"stylus -c",
+		"cmdr":"-o",
+		"route":"../../../source/public/static/css/"
+	},
+	"layouts":{
+		"active":false
+	},
+	"views":{
+		"path":"./views",
+		"compile":{
+			"admin.styl":{
+				"helpers":{
+					"plugins":["[@ult]jqDataTable.styl","[@ult]uLoader.styl","[@ult]uTipsy.styl","[@ult]jqDatepicker.styl","[@ult]jqUI.styl"]
+				},
+				"includes":{
+					"vhelpers":["[@pp]fonts.styl","[@pp]content.styl","[@pp]resources.styl","[@pp]form.styl","[@pp]buttons.styl","[@pp]sprites.styl","[@ult]responsive.styl"],
+					"layout":["[@pp]header.styl","[@pp]general.styl","[@pp]footer.styl"],
+					"imports":["login.styl","dashboard.styl","brand.styl","promotion.styl"]
+				}
+			}
+		}
+	},
+	"vars":{
+		"global":{
+			"styfluxFonts":"[@url]fonts/",
+			"routImgFancybox":"[@url]../img/fancybox/",
+			"routImgTipsy":"[@url]../img/",
+			"routImgLoader":"[@url]../img/"
+		},
+		"admin.styl":{
+			"routImg":"[@url]../img/",
+			"family1":"'Open Sans',arial,sans-serif",
+			"colorHeader": "#E95257",
+			"btnPrimary": "#E95257",
+			"colorLnk": "#E95257"
+		}
+	},
+	"ignore":{
+		"layouts":["render"],
+		"views":["admin/vhelpers","admin/layout","admin/imports"]
+	}
+}

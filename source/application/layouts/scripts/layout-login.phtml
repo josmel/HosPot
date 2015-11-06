@@ -1,0 +1,31 @@
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="es"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="es"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="es"> <![endif]-->
+<!--[if gt IE 8]> <html lang="es"> <![endif]-->
+<?php echo $this->render("include/head.phtml"); ?>
+<body>
+  <div class="navbar navbar-default">
+    <div class="navbar-header"><a href="/"><span class="navbar-brand"><img src="<?php echo STATIC_URL?>img/logo-fullcine.png" height="34" width="116"/>&nbsp;&nbsp;</span></a></div>
+  </div><?php echo $this->layout()->content ?>
+  <script type="text/javascript">
+    var yOSON ={
+     "modulo":"<?php echo $this->dataYOSON['module']?>",
+     "controller":"<?php echo $this->dataYOSON['controller']?>",
+     "action":"<?php echo $this->dataYOSON['action']?>",
+     "baseHost":"<?php echo SITE_URL?>",
+     "statHost":"<?php echo STATIC_URL?>",
+     "eleHost":"<?php echo DINAMIC_URL?>",
+     "statVers":"?12232",
+     <?php foreach ($this->yosonVars as $key => $value) : 
+      echo '"'.$key.'":'.$value.', '; 
+      endforeach; 
+      echo '"min":"","AppCore":{},"AppSandbox":{},"AppSchema":{"modules":{},"requires":{}'
+     ?>  
+     }
+    };
+  </script>
+  <script type="text/javascript" src="<?php echo STATIC_URL?>js/vendor/vendor.js"></script>
+  <script type="text/javascript" src="<?php echo STATIC_URL?>js/library/library.js"></script>
+</body>
